@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xojaobod Korpa Toshak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#232B42;
+    --navy-deep:#171D30;
+    --cream:#F6F0E3;
+    --card:#FFFCF5;
+    --rose:#C68A97;
+    --clay:#A9714F;
+    --gold:#C6A15B;
+    --ink:#2B2420;
+    --ink-soft:#5C5147;
+    --radius-fold: 28px 28px 8px 28px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  .wrap{
+    max-width:480px;
+    margin:0 auto;
+    min-height:100vh;
+    background:var(--cream);
+    position:relative;
+    box-shadow:0 0 60px rgba(0,0,0,0.08);
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 24px 18px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:19px;
+  }
+  .logo-mark{
+    width:34px; height:34px;
+    border-radius:50% 50% 50% 6px;
+    background:linear-gradient(135deg, var(--rose), var(--clay));
+    flex-shrink:0;
+  }
+  .lang-pill{
+    font-size:12px;
+    color:var(--ink-soft);
+    border:1px solid rgba(43,36,32,0.15);
+    padding:6px 12px;
+    border-radius:20px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--navy);
+    background-image: radial-gradient(circle at 15% 0%, #2E3856 0%, var(--navy) 55%, var(--navy-deep) 100%);
+    color:var(--cream);
+    padding:36px 24px 64px;
+    position:relative;
+    overflow:hidden;
+    border-radius:0 0 40px 40px;
+  }
+  .eyebrow{
+    font-size:12.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:14px;
+    display:block;
+  }
+  .hero h1{
+    font-size:38px;
+    line-height:1.08;
+    color:#FBF6EA;
+    max-width:280px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--rose);
+  }
+  .hero p{
+    margin-top:16px;
+    font-size:15px;
+    color:#C9CEDD;
+    max-width:300px;
+  }
+
+  /* Folded blanket signature stack */
+  .fold-stack{
+    position:absolute;
+    right:-30px;
+    top:120px;
+    width:220px;
+    height:220px;
+    z-index:0;
+  }
+  .fold{
+    position:absolute;
+    border-radius:var(--radius-fold);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  }
+  .fold.f1{width:190px;height:110px; background:linear-gradient(135deg,#3B4568,#232B42); top:70px; left:10px; transform:rotate(-8deg);}
+  .fold.f2{width:170px;height:100px; background:linear-gradient(135deg,var(--rose),#B77482); top:30px; left:30px; transform:rotate(4deg);}
+  .fold.f3{width:150px;height:90px; background:linear-gradient(135deg,var(--gold),#B78B45); top:0px; left:55px; transform:rotate(-3deg);}
+
+  .cta-row{
+    display:flex;
+    gap:10px;
+    margin-top:30px;
+    position:relative;
+    z-index:2;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 18px;
+    border-radius:14px;
+    font-weight:700;
+    font-size:14px;
+    transition:transform .15s ease, opacity .15s ease;
+  }
+  .btn:active{transform:scale(0.96);}
+  .btn-primary{
+    background:var(--rose);
+    color:#241318;
+  }
+  .btn-ghost{
+    background:rgba(255,255,255,0.08);
+    color:#F3EFE4;
+    border:1px solid rgba(255,255,255,0.25);
+  }
+
+  /* ---------- Section shared ---------- */
+  section{
+    padding:46px 24px;
+  }
+  .section-head{
+    margin-bottom:26px;
+  }
+  .section-head .eyebrow{color:var(--clay);}
+  .section-head h2{
+    font-size:26px;
+  }
+  .section-head p.lede{
+    color:var(--ink-soft);
+    font-size:14.5px;
+    margin-top:8px;
+    max-width:320px;
+  }
+
+  /* ---------- Products ---------- */
+  .products{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .product-card{
+    background:var(--card);
+    border-radius:var(--radius-fold);
+    padding:20px 16px;
+    border:1px solid rgba(43,36,32,0.06);
+    position:relative;
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .product-card.in{opacity:1; transform:translateY(0);}
+  .product-icon{
+    width:42px;height:42px;
+    border-radius:50% 50% 50% 8px;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:14px;
+    font-size:19px;
+  }
+  .product-card h3{
+    font-size:16.5px;
+    margin-bottom:4px;
+  }
+  .product-card p{
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+  .pc1 .product-icon{background:#EFE1D6;}
+  .pc2 .product-icon{background:#E9D8DC;}
+  .pc3 .product-icon{background:#E3E6EF;}
+  .pc4 .product-icon{background:#F0E6C9;}
+
+  /* ---------- Why us ---------- */
+  .why-list{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .why-item{
+    display:flex;
+    gap:16px;
+    padding:18px 0;
+    border-bottom:1px solid rgba(43,36,32,0.08);
+    opacity:0;
+    transform:translateY(12px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .why-item.in{opacity:1; transform:translateY(0);}
+  .why-item:last-child{border-bottom:none;}
+  .why-num{
+    font-family:'Fraunces', serif;
+    font-size:22px;
+    color:var(--rose);
+    min-width:30px;
+  }
+  .why-item h3{font-size:15.5px; margin-bottom:3px;}
+  .why-item p{font-size:13px; color:var(--ink-soft);}
+
+  /* ---------- Contact ---------- */
+  .contact{
+    background:var(--navy-deep);
+    border-radius:40px 40px 0 0;
+    color:var(--cream);
+  }
+  .contact .section-head h2{color:#FBF6EA;}
+  .contact .section-head .eyebrow{color:var(--gold);}
+  .contact .section-head p.lede{color:#B7BCCC;}
+
+  .contact-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .contact-card{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.10);
+    border-radius:18px;
+    padding:16px;
+    transition:background .2s ease, transform .15s ease;
+  }
+  .contact-card:active{transform:scale(0.98);}
+  .contact-card:hover{background:rgba(255,255,255,0.09);}
+  .contact-icon{
+    width:44px;height:44px;
+    border-radius:50% 50% 50% 8px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;
+    flex-shrink:0;
+  }
+  .ci-tg{background:linear-gradient(135deg,#5AA9E6,#3B7DC4);}
+  .ci-ig{background:linear-gradient(135deg,var(--rose),var(--gold));}
+  .ci-loc{background:linear-gradient(135deg,#8C93B0,#5A6280);}
+  .ci-call{background:linear-gradient(135deg,var(--gold),var(--clay));}
+
+  .contact-text .label{
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:#9AA0B5;
+  }
+  .contact-text .value{
+    font-size:15px;
+    font-weight:700;
+    color:#FBF6EA;
+  }
+  .contact-arrow{
+    margin-left:auto;
+    color:#9AA0B5;
+    font-size:18px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--navy-deep);
+    padding:30px 24px 40px;
+    text-align:center;
+    color:#7D839A;
+    font-size:12px;
+    border-top:1px solid rgba(255,255,255,0.06);
+  }
+  footer .fname{
+    font-family:'Fraunces', serif;
+    color:#DCD3C4;
+    font-size:15px;
+    margin-bottom:6px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="logo">
+      <span class="logo-mark"></span>
+      Xojaobod Korpa Toshak
+    </div>
+    <span class="lang-pill">UZ</span>
+  </header>
+
+  <section class="hero" style="padding-top:6px;">
+    <span class="eyebrow">Ko'rpa · Yostiq · Matras . ADYOL . PASTEL</span>
+    <h1>Har bir<br><em>tunggi uyqu</em><br>uchun.</h1>
+    <p>Original va sifatli ko'rpa-to'shak mahsulotlari, uyingizga issiqlik va qulaylik olib boradi.</p>
+
+    <div class="fold-stack" aria-hidden="true">
+      <div class="fold f1"></div>
+      <div class="fold f2"></div>
+      <div class="fold f3"></div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://t.me/Zayldinova_Odinaxon" target="_blank" rel="noopener">Telegram'ga o'tish</a>
+      <a class="btn btn-ghost" href="#contact">Bog'lanish</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Assortiment</span>
+      <h2>Mahsulotlar</h2>
+      <p class="lede">Har bir toifa — sifat va qulaylik nazarda tutilgan holda tanlangan.</p>
+    </div>
+    <div class="products">
+      <div class="product-card pc1">
+        <div class="product-icon">🛏️</div>
+        <h3>Ko'rpalar</h3>
+        <p>Yumshoq, issiq va yengil variantlar</p>
+      </div>
+      <div class="product-card pc2">
+        <div class="product-icon">🪶</div>
+        <h3>Yostiqlar</h3>
+        <p>Anatomik va klassik turlari</p>
+      </div>
+      <div class="product-card pc3">
+        <div class="product-icon">🛋️</div>
+        <h3>Matraslar</h3>
+        <p>Ortopedik, qattiq va yumshoq</p>
+      </div>
+      <div class="product-card pc4">
+        <div class="product-icon">🧺</div>
+        <h3>Choyshablar</h3>
+        <p>Turli o'lcham va dizaynlarda</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Sabab</span>
+      <h2>Nega aynan biz?</h2>
+    </div>
+    <div class="why-list">
+      <div class="why-item">
+        <span class="why-num">01</span>
+        <div>
+          <h3>Original mahsulot</h3>
+          <p>Faqat sifatli va tekshirilgan materiallar bilan ishlaymiz.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-num">02</span>
+        <div>
+          <h3>Qulay narxlar</h3>
+          <p>Sifat va narx o'rtasida eng maqbul muvozanat.</p>
+        </div>
+      </div>
+              </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section-head">
+      <span class="eyebrow">Aloqa</span>
+      <h2>Biz bilan bog'laning</h2>
+      <p class="lede">Savol va buyurtmalar uchun quyidagi kanallardan foydalaning.</p>
+    </div>
+    <div class="contact-list">
+      <a class="contact-card" href="https://t.me/Oydinoy19930106" target="_blank" rel="noopener">
+        <div class="contact-icon ci-tg">✈️</div>
+        <div class="contact-text">
+          <div class="label">Telegram</div>
+          <div class="value">OYDINOY</div>
+        </div>
+      <a class="contact-card" href="https://t.me/Zayldinova_Odinaxon" target="_blank" rel="noopener">
+        <div class="contact-icon ci-tg">✈️</div>
+        <div class="contact-text">
+          <div class="label">Telegram</div>
+          <div class="value">TELEGRAM GURUXIMIZ</div>
+        </div>
+        <div class="contact-arrow">›</div>
+      </a>
+      <a class="contact-card" href="https://www.instagram.com/xojaobodkorpatoshak/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener">
+        <div class="contact-icon ci-ig">📷</div>
+        <div class="contact-text">
+          <div class="label">Instagram</div>
+          <div class="value">INSTAGRAM</div>
+        </div>
+        <div class="contact-arrow">›</div>
+      </a>
+      <a class="contact-card" href="https://maps.app.goo.gl/E9i9Q2Y9uVRQphVv8" target="_blank" rel="noopener">
+        <div class="contact-icon ci-loc">📍</div>
+        <div class="contact-text">
+          <div class="label">Manzil</div>
+          <div class="value">Xaritada ko'rish</div>
+        </div>
+        <div class="contact-arrow">›</div>
+      </a>
+      <a class="contact-card" href="tel:+998901234567">
+        <div class="contact-icon ci-call">📞</div>
+        <div class="contact-text">
+          <div class="label">Telefon</div>
+          <div class="value">+998 90 204 06 93<br>
++998 93 783 04 65</div>
+        </div>
+        <div class="contact-arrow">›</div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fname"></div>
+    Har bir uyga issiqlik va qulaylik olib kelamiz.
+  </footer>
+
+</div>
+
+<script>
+  const opts = { threshold: 0.15 };
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, opts);
+  document.querySelectorAll('.product-card, .why-item').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
